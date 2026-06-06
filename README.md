@@ -1,72 +1,62 @@
-# Shadcn/UI Kanban Board
+# shadcn-svelte-kanban-board
 
-A modern, production-ready Kanban board for building full-stack B2B & B2C SaaS applications using Shadcn/UI.
+A Svelte 5 Kanban board built with local shadcn-style primitives and Tailwind v4 tokens.
 
-[Try it out here.](https://shadcn-kanban-board.com/example)
+## Reasoning
 
-## Features
+The original repository was a React Router showcase app whose reusable value lived in a single registry component. Porting that structure directly to Svelte would keep too much React-only surface area around the real artifact. This rewrite narrows the project to the part that matters:
 
-- ⚛️ Zero-Dependencies: pure React - no extra libraries required
-- ⚡ Performance Assurance: `useJsLoaded` hook to show a skeleton until your styles and scripts are ready
-- 🔍 Accessibility-First: full keyboard controls and screen-reader announcements out of the box  
-- 🎨 Seamless Theming: automatically adapts to your [Shadcn/UI](https://ui.shadcn.com) color scheme
-- 🔄 Framework-Agnostic: works with local state, [React Router v7](https://reactrouter.com) actions, or [Next.js Server Actions](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions) ...
-- 🧩 Extensible APIs: register custom DnD monitors and announcement handlers for fine-grained control
+1. A Svelte 5 package under [`src/lib`](/Users/agrittiwari/os/shadcn-svelte-kanban-board/src/lib).
+2. A demo app under [`src/App.svelte`](/Users/agrittiwari/os/shadcn-svelte-kanban-board/src/App.svelte).
+3. A shadcn-style remote registry payload under [`public/r/kanban.json`](/Users/agrittiwari/os/shadcn-svelte-kanban-board/public/r/kanban.json).
 
-## Motivation
+The board stays self-contained by shipping the primitives it needs locally instead of depending on React or Radix packages.
 
-We needed a good Kanban board for our LinkedIn scheduling and employee advocacy app, [SocialKit](https://getsocialkit.com/). We're building the app with Shadcn/UI and couldn’t find a Kanban board that was accessible, themeable, and easy to use. So we built our own.
+## What is included
 
-## Installation
+- `KanbanBoard.svelte` with editable columns and cards
+- Immutable board helpers for add, remove, update, and move operations
+- Local `Button`, `Input`, `Textarea`, `Badge`, and `Card` primitives
+- Tailwind v4 token setup for shadcn-like colors and surfaces
+- Registry metadata for remote installation flows
 
-* `npm:`
+## Development
 
-  ```bash
-  npx shadcn@latest add https://shadcn-kanban-board.com/r/kanban.json
-  npx shadcn@latest add https://shadcn-kanban-board.com/r/use-js-loaded.json
-  ```
+```bash
+npm install
+npm run dev
+```
 
-* `yarn:`
+## Packaging
 
-  ```bash
-  yarn dlx shadcn@latest add https://shadcn-kanban-board.com/r/kanban.json
-  yarn dlx shadcn@latest add https://shadcn-kanban-board.com/r/use-js-loaded.json
-  ```
+```bash
+npm run build
+npm run build:demo
+```
 
-* `pnpm:`
+## Public API
 
-  ```bash
-  pnpm dlx shadcn@latest add https://shadcn-kanban-board.com/r/kanban.json
-  pnpm dlx shadcn@latest add https://shadcn-kanban-board.com/r/use-js-loaded.json
-  ```
+```ts
+import {
+  KanbanBoard,
+  addCard,
+  addColumn,
+  moveCard,
+  moveCardByOffset,
+  removeCard,
+  removeColumn,
+  updateCard,
+  updateColumn,
+} from "shadcn-svelte-kanban-board";
+```
 
-* `bun:`
+## Example App
 
-  ```bash
-  bunx shadcn@latest add https://shadcn-kanban-board.com/r/kanban.json
-  bunx shadcn@latest add https://shadcn-kanban-board.com/r/use-js-loaded.json
-  ```
+A minimal Svelte app using the package lives in [example](/Users/agrittiwari/os/shadcn-svelte-kanban-board/example).
 
-## Example
+It passes a concrete `columns` array with nested card rows into `KanbanBoard` in [example/src/App.svelte](/Users/agrittiwari/os/shadcn-svelte-kanban-board/example/src/App.svelte) and seeds that data from [example/src/board-data.ts](/Users/agrittiwari/os/shadcn-svelte-kanban-board/example/src/board-data.ts).
 
-Check out the [example page](https://github.com/janhesters/shadcn-kanban-board/blob/main/app/routes/example.tsx). It demonstrates:
+## Notes
 
-- **Provider & layout**: Wraps everything in `KanbanBoardProvider` and sets up `<KanbanBoard>` inside your page.
-- **Dynamic columns & cards**: Uses `createId()` from `@paralleldrive/cuid2` to generate stable IDs.
-- **Add / remove**: Add or delete columns and cards, with auto-scroll to keep the latest column in view.
-- **Inline editing**: Edit column titles and card titles in place via `<Input>` and `<Textarea>`.
-- **Drag & drop**: Full mouse & keyboard DnD powered by `useDndEvents()`, including space/enter to pick up & drop, arrow keys to move, escape to cancel.
-- **Skeleton & JS-load guard**: Shows a `<KanbanBoardColumnSkeleton>` via `useJsLoaded()` until client-side JS is ready.
-- **Accessibility**: Screen-reader announcements on drag events, focus management, and ARIA labels everywhere.
-- **Theming & colors**: Color-circle primitives (`KanbanColorCircle`) driven by your theme’s CSS vars.
-- **Menus & icons**: Per-column dropdown (edit/delete) with `lucide-react` icons, tooltips, and `<DropdownMenu>`.
-
-Between the hooks, primitives and UX details (autoscroll, autofocus, multi-line card support), it’s a complete pattern you can lift straight into your own app. Just paste in `KanbanBoardPage` and go.
-
-## Contributing
-
-See [CONTRIBUTING.md](./CONTRIBUTING.md) for more information.
-
-## Built with ❤️ by [ReactSquad](https://reactsquad.io/)
-
-If you want to hire senior React developers to augment your team, or build your entire product from scratch, [schedule a call with us](https://www.reactsquad.io/schedule-a-call).
+- This turn does not install packages; the package exports the source library directly so the repo stays internally consistent without a generated `dist/` folder.
+- Legacy React showcase files may still exist in the repo, but the active package and registry paths now point only at the Svelte 5 implementation.

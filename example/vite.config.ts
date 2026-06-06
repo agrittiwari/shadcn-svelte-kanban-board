@@ -9,12 +9,13 @@ const rootDirectory = path.dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   plugins: [tailwindcss(), svelte()],
+  root: rootDirectory,
   resolve: {
     alias: {
-      $lib: path.resolve(rootDirectory, 'src/lib'),
+      $lib: path.resolve(rootDirectory, '../src/lib'),
     },
   },
   server: {
-    port: 4173,
+    port: 4174,
   },
 });

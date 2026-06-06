@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: oklch(0.985 0 0);
+  --color-foreground: oklch(0.205 0 0);
+  --color-card: oklch(1 0 0);
+  --color-card-foreground: oklch(0.205 0 0);
+  --color-muted: oklch(0.97 0 0);
+  --color-muted-foreground: oklch(0.45 0 0);
+  --color-border: oklch(0.92 0 0);
+  --color-input: oklch(0.94 0 0);
+  --color-primary: oklch(0.56 0.2 260);
+  --color-primary-foreground: oklch(0.99 0 0);
+  --color-secondary: oklch(0.94 0.02 260);
+  --color-secondary-foreground: oklch(0.3 0.02 260);
+  --color-accent: oklch(0.96 0.02 260);
+  --color-accent-foreground: oklch(0.26 0.02 260);
+  --color-destructive: oklch(0.63 0.22 25);
+  --color-ring: oklch(0.56 0.2 260);
+  --color-sidebar: oklch(0.975 0.005 258);
+  --color-kanban-board-circle-primary: var(--color-primary);
+  --color-kanban-board-circle-slate: oklch(0.56 0.02 264);
+  --color-kanban-board-circle-red: oklch(0.64 0.21 25);
+  --color-kanban-board-circle-amber: oklch(0.8 0.16 86);
+  --color-kanban-board-circle-green: oklch(0.72 0.19 149);
+  --color-kanban-board-circle-cyan: oklch(0.71 0.12 215);
+  --color-kanban-board-circle-blue: oklch(0.62 0.19 259);
+  --color-kanban-board-circle-violet: oklch(0.61 0.22 292);
+  --color-kanban-board-circle-pink: oklch(0.66 0.21 354);
+}
+
+:root {
+  color: var(--color-foreground);
+  background:
+    radial-gradient(circle at top, color-mix(in oklab, var(--color-primary) 12%, white), transparent 35%),
+    linear-gradient(180deg, color-mix(in oklab, var(--color-sidebar) 85%, white) 0%, var(--color-background) 100%);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family:
+    "IBM Plex Sans",
+    "Avenir Next",
+    sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}

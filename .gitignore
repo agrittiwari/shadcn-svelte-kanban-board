@@ -1,5 +1,9 @@
 .DS_Store
 /node_modules/
+/dist/
+/.svelte-kit/
+/.playwright-mcp/
+example/dist/
 
 # React Router
 /.react-router/
