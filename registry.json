@@ -11,47 +11,47 @@
         {
           "path": "src/lib/components/kanban/KanbanBoard.svelte",
           "type": "registry:component",
-          "target": "components/ui/kanban-board.svelte"
+          "target": "ui/kanban-board.svelte"
         },
         {
           "path": "src/lib/components/ui/Button.svelte",
           "type": "registry:ui",
-          "target": "components/ui/button.svelte"
+          "target": "button.svelte"
         },
         {
           "path": "src/lib/components/ui/Input.svelte",
           "type": "registry:ui",
-          "target": "components/ui/input.svelte"
+          "target": "input.svelte"
         },
         {
           "path": "src/lib/components/ui/Textarea.svelte",
           "type": "registry:ui",
-          "target": "components/ui/textarea.svelte"
+          "target": "textarea.svelte"
         },
         {
           "path": "src/lib/components/ui/Badge.svelte",
           "type": "registry:ui",
-          "target": "components/ui/badge.svelte"
+          "target": "badge.svelte"
         },
         {
           "path": "src/lib/components/ui/Card.svelte",
           "type": "registry:ui",
-          "target": "components/ui/card.svelte"
+          "target": "card.svelte"
         },
         {
           "path": "src/lib/kanban.ts",
           "type": "registry:lib",
-          "target": "lib/kanban.ts"
+          "target": "kanban.ts"
         },
         {
           "path": "src/lib/types.ts",
           "type": "registry:lib",
-          "target": "lib/types.ts"
+          "target": "types.ts"
         },
         {
           "path": "src/lib/utils.ts",
           "type": "registry:lib",
-          "target": "lib/utils.ts"
+          "target": "utils.ts"
         }
       ],
       "registryDependencies": [],
@@ -68,19 +68,6 @@
           "kanban-board-circle-blue": "oklch(0.62 0.19 259)",
           "kanban-board-circle-violet": "oklch(0.61 0.22 292)",
           "kanban-board-circle-pink": "oklch(0.66 0.21 354)"
-        }
-      },
-      "css": {
-        "@theme": {
-          "--color-kanban-board-circle-primary": "var(--primary)",
-          "--color-kanban-board-circle-slate": "oklch(0.56 0.02 264)",
-          "--color-kanban-board-circle-red": "oklch(0.64 0.21 25)",
-          "--color-kanban-board-circle-amber": "oklch(0.8 0.16 86)",
-          "--color-kanban-board-circle-green": "oklch(0.72 0.19 149)",
-          "--color-kanban-board-circle-cyan": "oklch(0.71 0.12 215)",
-          "--color-kanban-board-circle-blue": "oklch(0.62 0.19 259)",
-          "--color-kanban-board-circle-violet": "oklch(0.61 0.22 292)",
-          "--color-kanban-board-circle-pink": "oklch(0.66 0.21 354)"
         }
       }
     }
