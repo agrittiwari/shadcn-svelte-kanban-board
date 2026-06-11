@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "author": "agrittiwari",
   "description": "A Svelte 5 Kanban board built with local shadcn-style primitives.",
   "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",
